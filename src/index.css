@@ -1,0 +1,175 @@
+@import "tailwindcss";
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+    --primary: 156 100% 34%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 221 83% 53%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 70%;
+    --input: 0 0% 90%;
+    --ring: 221 83% 53%;
+    --radius: 0.5rem;
+    --glass: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 0% / 0.3;
+    --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05),
+      0 12px 24px rgba(0, 0, 0, 0.05);
+    --interactive-hover: 0 0% 0% / 0.04;
+    --interactive-ring: 0 0% 0% / 0.12;
+    --interactive-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .dark {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 93%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 93%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 156 100% 34%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 93%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 93%;
+    --border: 0 0% 30%;
+    --input: 0 0% 15%;
+    --ring: 217 91% 60%;
+    --glass: 0 0% 4% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --shadow-card: 0 0 0 1px rgba(121, 59, 59, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.4);
+    --interactive-hover: 0 0% 100% / 0.15;
+    --interactive-ring: 0 0% 100% / 0.14;
+    --interactive-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  }
+  ::selection {
+    background: hsl(var(--primary) / 0.85);
+    color: hsl(var(--primary-foreground));
+  }
+}
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out both;
+  }
+
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
+  .bg-card {
+    background-color: hsl(var(--card));
+  }
+
+  .text-card-foreground {
+    color: hsl(var(--card-foreground));
+  }
+
+  .text-muted-foreground {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .bg-secondary {
+    background-color: hsl(var(--secondary));
+  }
+
+  .text-primary {
+    color: hsl(var(--primary));
+  }
+
+  .bg-primary {
+    background-color: hsl(var(--primary));
+  }
+
+  .text-primary-foreground {
+    color: hsl(var(--primary-foreground));
+  }
+
+  .bg-glass {
+    background-color: hsl(var(--glass));
+  }
+
+  .border-glass-border {
+    border-color: hsl(var(--glass-border));
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+
+  .bg-foreground {
+    background-color: hsl(var(--foreground));
+  }
+
+  .text-background {
+    color: hsl(var(--background));
+  }
+
+  .bg-border {
+    background-color: hsl(var(--border));
+  }
+
+  .bg-badge {
+    background-color: hsl(var(--muted));
+  }
+
+  .text-badge {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .bg-background-95 {
+    background-color: hsl(var(--background) / 0.95);
+  }
+
+  .hover-icon {
+    transition: background-color 0.25s ease, box-shadow 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .hover-icon:hover {
+    background-color: hsl(var(--interactive-hover));
+    box-shadow: 0 0 0 1px hsl(var(--interactive-ring)),
+      var(--interactive-shadow);
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
